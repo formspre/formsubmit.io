@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Search Typing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f6f9;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 30px;
+      padding: 8px 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .search-box input[type="search"] {
+      border: none;
+      outline: none;
+      padding: 10px 14px;
+      border-radius: 30px;
+      font-size: 16px;
+      width: 250px;
+    }
+
+    .search-box button {
+      background: #007BFF;
+      border: none;
+      outline: none;
+      padding: 10px 18px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-box button:hover {
+      background: #0056b3;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-box">
+    <form onsubmit="return false;">
+      <input type="search" id="searchInput" placeholder="Type something...">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div id="output">You typed: </div>
+
+  <script>
+    const input = document.getElementById("searchInput");
+    const output = document.getElementById("output");
+
+    input.addEventListener("input", () => {
+      let text = input.value.trim();
+      output.textContent = text ? `You typed: ${text}` : "You typed:";
+    });
+  </script>
+
+</body>
+</html>
