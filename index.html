@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Search Typing</title>
+  <title>Email Search Box</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -49,34 +49,23 @@
     .search-box button:hover {
       background: #0056b3;
     }
-
-    #output {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #333;
-    }
   </style>
 </head>
 <body>
 
+  <h2>Search & Send to Email</h2>
+
   <div class="search-box">
-    <form onsubmit="return false;">
-      <input type="search" id="searchInput" placeholder="Type something...">
-      <button type="submit">Search</button>
+    <form action="https://formsubmit.co/jselvi1003@gmail.com" method="POST">
+      <input type="search" name="search_query" placeholder="Type something..." required>
+      <button type="submit">Send</button>
+
+      <!-- FormSubmit hidden options -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
     </form>
   </div>
 
-  <div id="output">You typed: </div>
-
-  <script>
-    const input = document.getElementById("searchInput");
-    const output = document.getElementById("output");
-
-    input.addEventListener("input", () => {
-      let text = input.value.trim();
-      output.textContent = text ? `You typed: ${text}` : "You typed:";
-    });
-  </script>
-
 </body>
 </html>
+
